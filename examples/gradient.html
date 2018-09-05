@@ -1,0 +1,86 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <title>Gradient</title>
+  <meta name="viewport" content="width=device-width">
+  <style>
+  .container {
+    width: 800px;
+    margin: 100px auto;
+    text-align: center;
+  }
+
+  .gauge {
+    width: 200px;
+    height: 200px;
+    display: inline-block;
+    background-image: url(elipse.png);
+    background-position: 46px 49px;
+    background-repeat: no-repeat;
+  }
+
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div id="gg1" class="gauge"></div>
+    <div id="gg2" class="gauge"></div>
+    <div id="gg3" class="gauge"></div>
+  </div>
+  <script src="../raphael-2.1.4.min.js"></script>
+  <script src="../justgage.js"></script>
+  <script>
+  document.addEventListener("DOMContentLoaded", function(event) {
+
+    var dflt = {
+      min: 0,
+      max: 100,
+      donut: true,
+      gaugeWidthScale: 0.85,
+      hideInnerShadow: true,
+      relativeGaugeSize: true,
+      formatNumber: true,
+      gaugeColor: "transparent",
+      levelColors: ["#e8edee"],
+      startAnimationTime: 1,
+      startAnimationType: "linear",
+      refreshAnimationTime: 1,
+      refreshAnimationType: "linear",
+      reverse: true
+    }
+
+    var value = 30;
+    var gg1 = new JustGage({
+      id: 'gg1',
+      value: value,
+      title: 'gradient '+value+' %',
+      defaults: dflt,
+      donutStartAngle: 90-(100-value)/100*360,
+    });
+
+    var value = 60;
+    var gf2 = new JustGage({
+      id: 'gg2',
+      value: value,
+      title: 'gradient '+value+' %',
+      defaults: dflt,
+      donutStartAngle: 90-(100-value)/100*360,
+    });
+
+    var value = 90;
+    var gf3 = new JustGage({
+      id: 'gg3',
+      value: value,
+      title: 'gradient '+value+' %',
+      defaults: dflt,
+      donutStartAngle: 90-(100-value)/100*360,
+    });
+
+  });
+  </script>
+</body>
+
+</html>
